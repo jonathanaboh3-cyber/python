@@ -24,9 +24,9 @@
 #          return (num1 - num2)
 
 def calculate():
-    num1 = float(input("Enter first number: "))
+    num1 = int(input("Enter first number: "))
     operator = input("Choose an operation (+, -, *, /): ")
-    num2 = float(input("Enter second number: "))
+    num2 = int(input("Enter second number: "))
 
     if operator == "+":
         return num1 + num2
