@@ -5,6 +5,9 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
+def percent(a, b):
+    return a % b
+
 
 def multiply(a, b):
     return a * b
@@ -24,6 +27,9 @@ def calculate(first_number, operator, second_number):
     elif operator == "-":
         return subtract(first_number, second_number)
 
+    elif operator == "%":
+        return percent(first_number, second_number)
+
     elif operator == "*":
         return multiply(first_number, second_number)
 
@@ -36,7 +42,7 @@ def calculate(first_number, operator, second_number):
 
 def main():
     print("===== PYTHON CLI CALCULATOR =====")
-    print("Supported operators: +, -, *, /")
+    print("Supported operators: +, -, *, /, %")
     print("Type 'quit' to exit.")
 
     while True:
@@ -53,13 +59,13 @@ def main():
             print("Invalid input. Please enter a valid number.")
             continue
 
-        operator = input("Enter operator (+, -, *, /): ").strip()
+        operator = input("Enter operator (+, -, *, /, %): ").strip()
 
         if operator.lower() == "quit":
             print("Calculator closed.")
             break
 
-        if operator not in ["+", "-", "*", "/"]:
+        if operator not in ["+", "-", "*", "/", "%"]:
             print("Invalid operator.")
             continue
 
