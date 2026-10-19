@@ -42,10 +42,14 @@ total = 0
 books.append({
     "Title": "Atomic Habits",
     "Author": "James Clear",
-    "Price": 30.0
+    "Price": 35.0
 })
+books.append({
+     "Title": "Rich Dad Poor Dad",
+     "Author": "Robert Kiyosaki",
+     "Price": 22.0})
 for book in books:
-     print(book["Title"], "Cost", book["Price"])    
+     print(books[4]["Price"])   
      total += book["Price"]
 print(len(books))
 print(total)
