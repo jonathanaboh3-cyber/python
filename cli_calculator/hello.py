@@ -50,7 +50,18 @@ books.append({
      "Price": 22.0})
 print(books[4]["Price"])   
 for book in books:
-    
-     total += book["Price"]
+     if book["Title"] == "Python Crash Course":
+        print(book["Price"])
+     total += book["Price"] 
 print(len(books))
 print(total)
+for book in books:
+     if book["Title"] == "Atomic Habits":
+         print (book["Author"])
+
+
+count = 0
+for book in books:
+     if book["Price"] > 25.0:
+       count += 1
+print (count)
