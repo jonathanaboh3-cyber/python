@@ -1,17 +1,8 @@
-# ==================================
-# EXERCISE 1: PLAYER ENERGY
-# ==================================
-
 def player_energy():
     energy = 5
     print(energy)
 
 player_energy()
-
-
-# ==================================
-# EXERCISE 2: CHECK THE BRIDGE
-# ==================================
 
 def check_bridge():
     has_rope = True
@@ -23,11 +14,6 @@ def check_bridge():
         print("You cannot cross")
 
 check_bridge()
-
-
-# ==================================
-# EXERCISE 3: GAME MENU
-# ==================================
 
 def loop_practice():
     running = True
@@ -59,3 +45,48 @@ def welcome_player():
     print("Your mission is to restore the lighthouse.")
 
 welcome_player()
+
+def reduce_energy():
+    energy = 5
+    for count in range(3):
+        energy = energy -1
+        print(energy)
+
+def check_energy():
+    energy = 3
+    if energy == 0:
+        print("Game over")
+    else:
+        print("You are still alive!")
+
+check_energy()
+
+
+def explore():
+    energy = 1
+    energy = energy -1
+    if energy == 0:
+        print("Game over")
+    else:
+        print("you are still alive!")
+
+explore()
+
+def move_player():
+    location = "Cave"
+
+    if location == "Beach":
+        location = "Jungle"
+    elif location == "Jungle":
+        location = "Cave"
+        pass
+    elif location == "Cave":
+        location = "Old Bridge"
+    elif location == "Old Bridge":
+        location = "lighthouse"
+    else:
+        print("You cannot move from here.")
+
+    print(location)
+
+move_player()
