@@ -72,25 +72,36 @@
 
 # explore()
 
-# def move_player():
-#     location = "Cave"
-#     choice = input("Where do you want to go?: ")
+def move_player(location):
+    choice = input("Where do you want to go? (q to quit): ")
 
-#     if location == "Beach" and  choice == "Jungle":
-#         location = "Jungle"
-#     elif location == "Jungle" and choice == "Cave":
-#         location = "Cave"
-#     elif  location == "Cave" and choice == "Old Bridge":
-#         location = "Old Bridge"
-#     elif location == "Old Bridge" and choice == "Lighthouse":
-#         location = "Lighthouse"
-#     else:
-#         print("You cannot move from here.")
+    if choice == "q":
+        print("Goodbye!")
+        return location
+    if location == "Beach" and choice == "Jungle":
+        location = "Jungle"
 
+    elif location == "Jungle" and choice == "Cave":
+        location = "Cave"
+
+    elif location == "Cave" and choice == "Old Bridge":
+        location = "Old Bridge"
+
+    elif location == "Old Bridge" and choice == "Lighthouse":
+        location = "Lighthouse"
+
+    else:
+        print("You cannot move from here.")
+
+    return location
+
+current_location = "Cave"
+
+while current_location != "Lighthouse":
+    current_location = move_player(current_location)
+
+print(current_location)
+
+# def show_location(location):
 #     print(location)
-
-# move_player()
-
-def show_location(location):
-    print(location)
-show_location("Jungle")
+# show_location("Jungle")
