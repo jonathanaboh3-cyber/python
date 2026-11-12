@@ -1,76 +1,79 @@
-# def player_energy():
-#     energy = 5
-#     print(energy)
-
-# player_energy()
-
-# def check_bridge():
-#     has_rope = True
-#     has_energy = False
-
-#     if has_rope and has_energy:
-#         print("You can cross")
-#     else:
-#         print("You cannot cross")
-
-# check_bridge()
-
-# def loop_practice():
-#     running = True
-
-#     while True:
-#         print("1. explore: ")
-#         print("2. check inventory: ")
-#         print("q. quit: ")
-
-#         choice = input("Enter your choice: ")
-
-#         if choice == "q":
-#             print("Good bye 👋")
-#             break
-
-#         elif choice == "1":
-#             print("You are exploring the island!: ")
-#         elif choice == "2":
-#             print("Your inventory is empty: ")
-#         else:
-#             print("Invalid choice")
-
-# loop_practice()
-
-# def welcome_player():
-#     name = input("Player enter your name: ")
-#     print(f"Welcome {name}")
-#     print("You are stranded on a mysterious island.")
-#     print("Your mission is to restore the lighthouse.")
-
-# welcome_player()
-
-# def reduce_energy():
-#     energy = 5
-#     for count in range(3):
-#         energy = energy -1
-#         print(energy)
-
-# def check_energy():
-#     energy = 3
-#     if energy == 0:
-#         print("Game over")
-#     else:
-#         print("You are still alive!")
-
-# check_energy()
+energy = 5
 
 
-# def explore():
-#     energy = 1
-#     energy = energy -1
-#     if energy == 0:
-#         print("Game over")
-#     else:
-#         print("you are still alive!")
+def player_energy():
+    print(f"Your energy: {energy}")
 
-# explore()
+
+def check_bridge():
+    has_rope = True
+    has_energy = False
+
+    if has_rope and has_energy:
+        print("You can cross")
+    else:
+        print("You cannot cross")
+
+
+def loop_practice():
+    while True:
+        print("\n1. explore")
+        print("2. check inventory")
+        print("q. quit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "q":
+            print("Good bye 👋")
+            break
+
+        elif choice == "1":
+            explore()
+
+            if energy <= 0:
+                print("you have run out of energy. Game  over!")
+                break
+
+        elif choice == "2":
+            print(inventory)
+            
+            # print("Your inventory is empty")
+
+        else:
+            print("Invalid choice")
+
+
+def welcome_player():
+    name = input("Player enter your name: ")
+    print(f"Welcome {name}")
+    print("You are stranded on a mysterious island.")
+    print("Your mission is to restore the lighthouse.")
+
+
+def reduce_energy():
+    global energy
+
+    if energy > 0:
+        energy = energy - 1
+        print(f"Energy remaining: {energy}")
+
+        if energy == 0:
+            print("Game over")
+    else:
+        print("You have no energy left!")
+
+
+def check_energy():
+    if energy == 0:
+        print("Game over")
+    else:
+        print("You are still alive!")
+
+
+def explore():
+    print("You are exploring the island!")
+    reduce_energy()
+
 
 def move_player(location):
     choice = input("Where do you want to go? (q to quit): ")
@@ -78,6 +81,7 @@ def move_player(location):
     if choice == "q":
         print("Goodbye!")
         return location
+
     if location == "Beach" and choice == "Jungle":
         location = "Jungle"
 
@@ -95,13 +99,19 @@ def move_player(location):
 
     return location
 
-current_location = "Cave"
 
-while current_location != "Lighthouse":
-    current_location = move_player(current_location)
+def show_location(location):
+    print(location)
 
-print(current_location)
+inventory = []
+inventory.append("Rope")
+inventory.append("Lantern")
 
-# def show_location(location):
-#     print(location)
-# show_location("Jungle")
+
+# Start the game
+welcome_player()
+player_energy()
+check_bridge()
+check_energy()
+show_location("Jungle")
+loop_practice()
